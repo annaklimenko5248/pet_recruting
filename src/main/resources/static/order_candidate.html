@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Для заказчика</title>
+</head>
+<body>
+<p>Создать заказ на подбор персонала</p>
+<form method="POST" action="/orders/save/order/candidate">
+    <p>Основные</p>
+    <p><input type="text" placeholder="name" name="name"></p>
+    <p><input type="text" placeholder="organization" name="organization"></p>
+    <p><input type="text" placeholder="telephone" name="telephone"></p>
+    <p><input type="text" placeholder="email" name="email"></p>
+    <p><input type="text" placeholder="tape_of_service" name="tape_of_service"></p>
+    <p>О вакансии</p>
+    <p><input type="text" placeholder="position" name="position"></p>
+    <p><input type="text" placeholder="number_of_seats" name="number_of_seats"></p>
+    <p><input type="text" placeholder="company_description" name="company_description"></p>
+    <p>Требования к кандидату</p>
+    <p>Личные</p>
+    <p><input type="text" placeholder="sex" name="sex"></p>
+    <p><input type="text" placeholder="age" name="age"></p>
+    <p><input type="text" placeholder="personal_characteristics" name="personal_characteristics"></p>
+    <p>Профессиональные</p>
+    <p><input type="text" placeholder="education_level" name="education_level"></p>
+    <p><input type="text" placeholder="education_profile" name="education_profile"></p>
+    <p><input type="text" placeholder="additional_education" name="additional_education"></p>
+    <p><input type="text" placeholder="work_experience" name="work_experience"></p>
+    <p><input type="text" placeholder="additional_information" name="additional_information"></p>
+    <p>Условия работы</p>
+    <p><input type="text" placeholder="address" name="address"></p>
+    <p><input type="text" placeholder="work_schedule" name="work_schedule"></p>
+    <p><input type="text" placeholder="functional_responsibilities" name="functional_responsibilities"></p>
+    <p><input type="text" placeholder="salary" name="salary"></p>
+    <p>Взаимодействие заказчика и исполнителя заявки</p>
+    <p><input type="text" placeholder="days_of_meetings" name="days_of_meetings"></p>
+   <p><input type="submit" value="Создать заказ"></p>
+</form>
+
+</body>
+</html>

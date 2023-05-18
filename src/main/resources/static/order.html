@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Для заказчика</title>
+</head>
+<body>
+<p>Базовый заказ</p>
+<!--<p><a href="/order_candidate.html">Создать заказ на подбор персонала</a></p>-->
+<form method="POST" action="/orders/save">
+    <p><input type="text" placeholder="name" name="name"></p>
+    <p><input type="text" placeholder="organization" name="organization"></p>
+    <p><input type="text" placeholder="telephone" name="telephone"></p>
+    <p><input type="text" placeholder="email" name="email"></p>
+    <p><input type="text" placeholder="type_of_service" name="type_of_service"></p>
+    <p><input type="submit" value="Создать заказ"></p>
+</form>
+</body>
+</html>
