@@ -19,19 +19,23 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.Arrays;
 import java.util.Collections;
 
+/**
+ * Класс реализует настройки доступа по таким-то энпонтам и т. д.(дописать)
+ */
+
 @CrossOrigin
 @Configuration
 @EnableWebSecurity
-public class SecurConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private UserDetailsServiceImpl userDetailsService;
 
     @Autowired
-    public SecurConfig(UserDetailsServiceImpl userDetailsService) {
+    public SecurityConfig(UserDetailsServiceImpl userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
-    public SecurConfig(boolean disableDefaults, UserDetailsServiceImpl userDetailsService) {
+    public SecurityConfig(boolean disableDefaults, UserDetailsServiceImpl userDetailsService) {
         super(disableDefaults);
         this.userDetailsService = userDetailsService;
     }
@@ -42,11 +46,11 @@ public class SecurConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-
     @Bean
     public PasswordEncoder passwordEncoder() {
-        //TODO убрать шифрование
+        //это если мы не используем шифрование паролей
         //       return (PasswordEncoder) NoOpPasswordEncoder.getInstance();
+        //а это, если используем
         return new BCryptPasswordEncoder();
     }
 
@@ -64,7 +68,7 @@ public class SecurConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers(HttpMethod.POST, "/users/register/*")
                 .permitAll()
-                .antMatchers(HttpMethod.POST, "/orders/save/*")
+                .antMatchers(HttpMethod.POST, "/orders/save", "/orders/save/*")
                 .permitAll()
                 //все остальные эндпониты, начинающиеся на /orders будут требовать роль HR или ADMIN
                 .antMatchers("/orders/**")
@@ -88,15 +92,5 @@ public class SecurConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Collections.singletonList("*"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
-        configuration.setAllowedHeaders(Collections.singletonList("*"));
-        configuration.setExposedHeaders(Collections.singletonList("Authorization"));
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }
+
 }

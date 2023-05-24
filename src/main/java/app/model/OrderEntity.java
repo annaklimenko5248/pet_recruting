@@ -44,6 +44,30 @@ public class OrderEntity{
      */
     private String type_of_service;
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setOrganization(String organization) {
+        this.organization = organization;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setType_of_service(String type_of_service) {
+        this.type_of_service = type_of_service;
+    }
+
+    public void setOrderCandidateEntity(OrderCandidateEntity orderCandidateEntity) {
+        this.orderCandidateEntity = orderCandidateEntity;
+    }
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_candidate_id")
     private OrderCandidateEntity orderCandidateEntity;
